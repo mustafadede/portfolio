@@ -58,7 +58,7 @@ nav {
 }
 
 .top {
-  height: 100vh;
+  height: 840px;
   display: flex;
   justify-content: space-evenly;
   min-height: 80vh;
@@ -180,7 +180,7 @@ nav {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  filter: blur(4px);
+  filter: blur(4px) grayscale(75%);
   height: 910px;
   position: absolute;
   width: 100%;
@@ -205,7 +205,7 @@ nav {
 .second-page {
   display: flex;
   justify-content: space-evenly;
-  height: 910px;
+  height: 920px;
   background: $dark-color;
   background-position-x: 45%;
 
@@ -249,9 +249,14 @@ nav {
   }
   .right {
     margin-left: 32px;
+    margin-top: -24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    h2 {
+      width: 65%;
+      margin-bottom: 64px;
+    }
     a {
       display: flex;
       flex-direction: row;
@@ -283,32 +288,102 @@ nav {
 }
 
 .third-page {
-  height: 100vh;
+  height: 590px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .wrapper {
+    position: relative;
+    top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .icons {
+      margin-top: 32px;
+      a {
+        background-color: $pink-brown;
+        border-radius: 42px;
+        padding: 26px;
+        margin-right: 12px;
+        transition: 0.5s ease-out;
+        text-decoration: none;
+        font-size: 24px;
+        color: $white-gray;
+        &:hover {
+          transition: 0.5s ease-in;
+          background-color: $brown;
+        }
+      }
+    }
+  }
+
+  h2 {
+    margin-bottom: 32px;
+  }
+  p {
+    font-size: 24px;
+    width: 664px;
+  }
 }
+
+footer {
+  padding: 14px 0;
+  background-color: $dark-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $white-gray;
+  a {
+    text-decoration: none;
+    color: $pink-brown;
+    transition: 0.5s ease-out;
+
+    &:hover {
+      color: $white-gray;
+      transition: 0.5s ease-in;
+    }
+  }
+}
+
 /* IntersectionObserver classes*/
 .hidden {
   opacity: 0;
   transition: all 1s;
-  transform: translateY(180px);
+  transform: translateY(120px);
 }
 
 .show {
   opacity: 1;
   transform: translateY((0));
-
-  a {
-    transition: all 1.4s;
-  }
 }
 /* */
 .dark-theme {
   background-color: $dark-color;
   transition: 2s ease-in;
+
+  footer {
+    background-color: $joy-brown;
+
+    p {
+      color: $dark-color;
+    }
+
+    a {
+      color: $dark-color;
+    }
+  }
+
+  p {
+    color: $white-gray;
+  }
+
   a {
     color: $white-gray;
   }
   h2 {
-    color: #bf8367;
+    color: $joy-brown;
     transition: 1.5s ease-in;
   }
 
@@ -337,7 +412,7 @@ nav {
     }
 
     h2 {
-      color: $dark-color;
+      color: $peal-blue;
     }
   }
 }

@@ -53,7 +53,7 @@ nav ul li .projects {
 }
 
 .top {
-  height: 100vh;
+  height: 840px;
   display: flex;
   justify-content: space-evenly;
   min-height: 80vh;
@@ -199,7 +199,7 @@ nav ul li .projects {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  filter: blur(4px);
+  filter: blur(4px) grayscale(75%);
   height: 910px;
   position: absolute;
   width: 100%;
@@ -238,7 +238,7 @@ nav ul li .projects {
 .second-page {
   display: flex;
   justify-content: space-evenly;
-  height: 910px;
+  height: 920px;
   background: #1f120b;
   background-position-x: 45%;
 }
@@ -281,9 +281,14 @@ nav ul li .projects {
 }
 .second-page .right {
   margin-left: 32px;
+  margin-top: -24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.second-page .right h2 {
+  width: 65%;
+  margin-bottom: 64px;
 }
 .second-page .right a {
   display: flex;
@@ -316,22 +321,73 @@ nav ul li .projects {
 }
 
 .third-page {
-  height: 100vh;
+  height: 590px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.third-page .wrapper {
+  position: relative;
+  top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.third-page .wrapper .icons {
+  margin-top: 32px;
+}
+.third-page .wrapper .icons a {
+  background-color: #bf8367;
+  border-radius: 42px;
+  padding: 26px;
+  margin-right: 12px;
+  transition: 0.5s ease-out;
+  text-decoration: none;
+  font-size: 24px;
+  color: #ece3e0;
+}
+.third-page .wrapper .icons a:hover {
+  transition: 0.5s ease-in;
+  background-color: #8f4b25;
+}
+.third-page h2 {
+  margin-bottom: 32px;
+}
+.third-page p {
+  font-size: 24px;
+  width: 664px;
+}
+
+footer {
+  padding: 14px 0;
+  background-color: #1f120b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ece3e0;
+}
+footer a {
+  text-decoration: none;
+  color: #bf8367;
+  transition: 0.5s ease-out;
+}
+footer a:hover {
+  color: #ece3e0;
+  transition: 0.5s ease-in;
 }
 
 /* IntersectionObserver classes*/
 .hidden {
   opacity: 0;
   transition: all 1s;
-  transform: translateY(180px);
+  transform: translateY(120px);
 }
 
 .show {
   opacity: 1;
   transform: translateY(0);
-}
-.show a {
-  transition: all 1.4s;
 }
 
 /* */
@@ -339,11 +395,23 @@ nav ul li .projects {
   background-color: #1f120b;
   transition: 2s ease-in;
 }
+.dark-theme footer {
+  background-color: #d8c2ae;
+}
+.dark-theme footer p {
+  color: #1f120b;
+}
+.dark-theme footer a {
+  color: #1f120b;
+}
+.dark-theme p {
+  color: #ece3e0;
+}
 .dark-theme a {
   color: #ece3e0;
 }
 .dark-theme h2 {
-  color: #bf8367;
+  color: #d8c2ae;
   transition: 1.5s ease-in;
 }
 .dark-theme span {
@@ -368,7 +436,7 @@ nav ul li .projects {
   background-color: #3e4174;
 }
 .dark-theme .second-page h2 {
-  color: #1f120b;
+  color: #3e4174;
 }
 
 .bouncy {
