@@ -1,0 +1,405 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ece3e0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  transition: 1.5s ease-out;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 500;
+  transition: 0.5s ease-out;
+  transform: translateY(25%);
+  transition: transform 2.5s;
+  color: #1f120b;
+}
+
+span {
+  color: #bf8367;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin: 18px 100px 48px 100px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #1f120b;
+  transition: 0.2s ease-out;
+}
+nav ul li a:hover {
+  color: #bf8367;
+  transition: 0.2s ease-in;
+}
+nav ul li .projects {
+  margin-right: 24px;
+}
+
+.top {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 80vh;
+}
+.top .left {
+  width: 270px;
+  margin: 8em 4em 0 0;
+}
+.top .theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 620px;
+  right: -210px;
+  width: 81px;
+  height: 81px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  transition: 2.5s ease-out;
+  background-color: #bf8367;
+  -webkit-animation-name: clickhere;
+          animation-name: clickhere;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+@-webkit-keyframes clickhere {
+  0% {
+    background-color: #bf8367;
+  }
+  50% {
+    background-color: #e39600;
+  }
+  100% {
+    background-color: #3e4174;
+  }
+}
+@keyframes clickhere {
+  0% {
+    background-color: #bf8367;
+  }
+  50% {
+    background-color: #e39600;
+  }
+  100% {
+    background-color: #3e4174;
+  }
+}
+.top .theme:hover {
+  transition: 0.6s ease-in;
+  background-color: #d8c2ae;
+  border: 0.2px solid #8e8681;
+}
+.top .pill {
+  position: relative;
+  left: -48px;
+  display: flex;
+  background-color: #d8c2ae;
+  border-radius: 180px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 420px;
+  min-width: 350px;
+  width: 360px;
+  max-width: 400px;
+  min-height: 560px;
+  height: 600px;
+  max-height: 620px;
+  background-image: url(../images/main-photo.png);
+  transition: 0.5s ease-out;
+  background-position-y: 0;
+  background-position-x: -35px;
+}
+.top .pill:hover {
+  transition: 0.7s ease-in;
+  background-color: #8e8681;
+  background-position-y: -7px;
+}
+.top .right {
+  display: flex;
+  align-items: center;
+}
+.top .right h2 {
+  height: inherit;
+  margin-left: 48px;
+  width: inherit;
+}
+
+.scrollButton {
+  transition: 1s ease-in;
+  z-index: 1;
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 72px;
+  text-decoration: none;
+  font-size: 56px;
+  padding: 3px 24px;
+  border-radius: 50%;
+  background-color: #ece3e0;
+  -webkit-animation-name: appearScroll;
+          animation-name: appearScroll;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes appearScroll {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes appearScroll {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.scrollButton span {
+  color: #8f4b25;
+  display: flex;
+  position: relative;
+  top: 10px;
+}
+
+.second-page-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  height: 910px;
+  position: absolute;
+  width: 100%;
+  top: 25;
+  left: 0;
+  -webkit-animation-name: bgappear;
+          animation-name: bgappear;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: normal;
+          animation-timing-function: normal;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+@-webkit-keyframes bgappear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes bgappear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.second-page {
+  display: flex;
+  justify-content: space-evenly;
+  height: 910px;
+  background: #1f120b;
+  background-position-x: 45%;
+}
+.second-page h2 {
+  color: #ece3e0;
+}
+.second-page .left {
+  display: flex;
+  padding-left: 56px;
+  padding-top: 64px;
+  background: transparent;
+}
+.second-page .left .seperation {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+}
+.second-page .left .seperation .card {
+  margin: 0 14px;
+  border-radius: 24px;
+  width: 280px;
+  height: 360px;
+  transition: 1s ease-out;
+  cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.137);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+.second-page .left .seperation .card:hover {
+  border: 2px solid #8e8681;
+  transform: translateY(-15px);
+  transition: 0.5s ease-in;
+  filter: grayscale(0%);
+}
+.second-page .left .top-gap {
+  margin-top: 48px;
+}
+.second-page .right {
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.second-page .right a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #ece3e0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 42px;
+  padding: 12px 18px;
+  background-color: #bf8367;
+  transition: 0.9s ease-out;
+}
+.second-page .right a:hover {
+  transition: 0.4s ease-in;
+  background-color: #8f4b25;
+}
+.second-page .right span {
+  width: 48px;
+  height: 48px;
+  color: #e39600;
+}
+.second-page .right span svg {
+  fill: #ece3e0;
+}
+
+.third-page {
+  height: 100vh;
+}
+
+/* IntersectionObserver classes*/
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(180px);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.show a {
+  transition: all 1.4s;
+}
+
+/* */
+.dark-theme {
+  background-color: #1f120b;
+  transition: 2s ease-in;
+}
+.dark-theme a {
+  color: #ece3e0;
+}
+.dark-theme h2 {
+  color: #bf8367;
+  transition: 1.5s ease-in;
+}
+.dark-theme span {
+  color: #3e4174;
+  transition: 1.5s ease-in;
+}
+.dark-theme svg {
+  fill: #1f120b;
+  transition: 1.5s ease-in;
+}
+.dark-theme .theme {
+  background-color: #ece3e0;
+  transition: 1s ease-in;
+}
+.dark-theme .second-page {
+  background-color: #d8c2ae;
+}
+.dark-theme .second-page a {
+  background-color: #e39600;
+}
+.dark-theme .second-page a:hover {
+  background-color: #3e4174;
+}
+.dark-theme .second-page h2 {
+  color: #1f120b;
+}
+
+.bouncy {
+  -webkit-animation-name: flag;
+          animation-name: flag;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+@-webkit-keyframes flag {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes flag {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}/*# sourceMappingURL=style.css.map */

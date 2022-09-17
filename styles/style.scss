@@ -1,0 +1,361 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $white-gray;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  transition: 1.5s ease-out;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 500;
+  transition: 0.5s ease-out;
+  transform: translateY(25%);
+  transition: transform 2.5s;
+  color: $dark-color;
+}
+
+span {
+  color: $pink-brown;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin: 18px 100px 48px 100px;
+  ul {
+    list-style: none;
+    display: flex;
+
+    li {
+      a {
+        font-size: 24px;
+        text-decoration: none;
+        color: $dark-color;
+        transition: 0.2s ease-out;
+        &:hover {
+          color: $pink-brown;
+          transition: 0.2s ease-in;
+        }
+      }
+      .projects {
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+.top {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 80vh;
+
+  .left {
+    width: 270px;
+    margin: 8em 4em 0 0;
+  }
+
+  .theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 620px;
+    right: -210px;
+    width: 81px;
+    height: 81px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    transition: 2.5s ease-out;
+    background-color: $pink-brown;
+    animation-name: clickhere;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    @keyframes clickhere {
+      0% {
+        background-color: $pink-brown;
+      }
+      50% {
+        background-color: $zeus-light;
+      }
+      100% {
+        background-color: $peal-blue;
+      }
+    }
+    &:hover {
+      transition: 0.6s ease-in;
+      background-color: $joy-brown;
+      border: 0.2px solid $gray;
+    }
+  }
+
+  .pill {
+    position: relative;
+    left: -48px;
+    display: flex;
+    background-color: $joy-brown;
+    border-radius: 180px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 420px;
+    min-width: 350px;
+    width: 360px;
+    max-width: 400px;
+    min-height: 560px;
+    height: 600px;
+    max-height: 620px;
+    background-image: url(../images/main-photo.png);
+    transition: 0.5s ease-out;
+    background-position-y: 0;
+    background-position-x: -35px;
+
+    &:hover {
+      transition: 0.7s ease-in;
+      background-color: $gray;
+      background-position-y: -7px;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    h2 {
+      height: inherit;
+      margin-left: 48px;
+      width: inherit;
+    }
+  }
+}
+
+.scrollButton {
+  transition: 1s ease-in;
+  z-index: 1;
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 72px;
+  text-decoration: none;
+  font-size: 56px;
+  padding: 3px 24px;
+  border-radius: 50%;
+  background-color: $white-gray;
+
+  animation-name: appearScroll;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  @keyframes appearScroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  span {
+    color: $brown;
+    display: flex;
+    position: relative;
+    top: 10px;
+  }
+}
+.second-page-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  height: 910px;
+  position: absolute;
+  width: 100%;
+  top: 25;
+  left: 0;
+  animation-name: bgappear;
+  animation-duration: 0.5s;
+  animation-timing-function: normal;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: backwards;
+  @keyframes bgappear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.second-page {
+  display: flex;
+  justify-content: space-evenly;
+  height: 910px;
+  background: $dark-color;
+  background-position-x: 45%;
+
+  h2 {
+    color: $white-gray;
+  }
+
+  .left {
+    display: flex;
+    padding-left: 56px;
+    padding-top: 64px;
+    background: transparent;
+    .seperation {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 24px;
+      .card {
+        margin: 0 14px;
+        border-radius: 24px;
+        width: 280px;
+        height: 360px;
+        transition: 1s ease-out;
+        cursor: pointer;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.137);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: grayscale(100%);
+        &:hover {
+          border: 2px solid $gray;
+          transform: translateY(-15px);
+          transition: 0.5s ease-in;
+          filter: grayscale(0%);
+        }
+      }
+    }
+    .top-gap {
+      margin-top: 48px;
+    }
+  }
+  .right {
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      font-size: 24px;
+      text-decoration: none;
+      color: $white-gray;
+      width: fit-content;
+      border-radius: 42px;
+      padding: 12px 18px;
+      background-color: $pink-brown;
+      transition: 0.9s ease-out;
+      &:hover {
+        transition: 0.4s ease-in;
+        background-color: $brown;
+      }
+    }
+    span {
+      width: 48px;
+      height: 48px;
+      color: $zeus-light;
+      svg {
+        fill: $white-gray;
+      }
+    }
+  }
+}
+
+.third-page {
+  height: 100vh;
+}
+/* IntersectionObserver classes*/
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(180px);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY((0));
+
+  a {
+    transition: all 1.4s;
+  }
+}
+/* */
+.dark-theme {
+  background-color: $dark-color;
+  transition: 2s ease-in;
+  a {
+    color: $white-gray;
+  }
+  h2 {
+    color: #bf8367;
+    transition: 1.5s ease-in;
+  }
+
+  span {
+    color: #3e4174;
+    transition: 1.5s ease-in;
+  }
+
+  svg {
+    fill: $dark-color;
+    transition: 1.5s ease-in;
+  }
+
+  .theme {
+    background-color: $white-gray;
+    transition: 1s ease-in;
+  }
+  .second-page {
+    background-color: $joy-brown;
+
+    a {
+      background-color: $zeus-light;
+      &:hover {
+        background-color: $peal-blue;
+      }
+    }
+
+    h2 {
+      color: $dark-color;
+    }
+  }
+}
+
+.bouncy {
+  animation-name: flag;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  @keyframes flag {
+    0% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+}
