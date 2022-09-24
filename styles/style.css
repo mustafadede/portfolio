@@ -15,6 +15,9 @@ body {
   font-size: 18px;
   transition: 1.5s ease-out;
 }
+body .responsive p {
+  display: none;
+}
 @media (max-width: 1167px) {
   body .responsive {
     background-color: #bf8367;
@@ -27,6 +30,7 @@ body {
     align-items: center;
   }
   body .responsive p {
+    display: block;
     text-align: center;
     font-size: 1.5rem;
     color: #1f120b;
@@ -35,9 +39,6 @@ body {
   body #wrapper {
     display: none;
   }
-}
-body .responsive p {
-  display: none;
 }
 
 h2 {

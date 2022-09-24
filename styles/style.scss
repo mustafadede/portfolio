@@ -22,6 +22,11 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   transition: 1.5s ease-out;
+  .responsive {
+    p {
+      display: none;
+    }
+  }
   @include mobile() {
     .responsive {
       background-color: $pink-brown;
@@ -33,6 +38,7 @@ body {
       justify-content: center;
       align-items: center;
       p {
+        display: block;
         text-align: center;
         font-size: 1.5rem;
         color: $dark-color;
@@ -40,11 +46,6 @@ body {
       }
     }
     #wrapper {
-      display: none;
-    }
-  }
-  .responsive {
-    p {
       display: none;
     }
   }
