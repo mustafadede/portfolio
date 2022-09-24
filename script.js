@@ -51,7 +51,7 @@ const links = [
   "https://mustafadede.github.io/udemy-js-course-guess-my-number/",
   "https://mustafadede.github.io/Increment-Game/",
   "https://mustafadede.github.io/interactive-rating-component/",
-  "https://mustafadede.github.io/DesignCourse-UI/",
+  "https://mustafadede.github.io/pig-game/",
 ];
 document.querySelectorAll(".card").forEach((card, index) => {
   card.style.backgroundImage = `url("./images/${index + 1}.gif")`;

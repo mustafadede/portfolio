@@ -15,6 +15,30 @@ body {
   font-size: 18px;
   transition: 1.5s ease-out;
 }
+@media (max-width: 1167px) {
+  body .responsive {
+    background-color: #bf8367;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    scroll-behavior: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .responsive p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1f120b;
+    font-weight: 500;
+  }
+  body #wrapper {
+    display: none;
+  }
+}
+body .responsive p {
+  display: none;
+}
 
 h2 {
   font-size: 48px;
@@ -55,7 +79,8 @@ nav ul li .projects {
 .top {
   height: 840px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 100px;
   min-height: 80vh;
 }
 .top .left {
@@ -120,6 +145,7 @@ nav ul li .projects {
   position: relative;
   left: -48px;
   display: flex;
+  align-items: center;
   background-color: #d8c2ae;
   border-radius: 180px;
   background-repeat: no-repeat;
@@ -393,7 +419,7 @@ footer a:hover {
 /* */
 .dark-theme {
   background-color: #1f120b;
-  transition: 2s ease-in;
+  transition: 1s ease-in;
 }
 .dark-theme footer {
   background-color: #d8c2ae;
