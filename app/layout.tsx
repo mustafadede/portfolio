@@ -47,6 +47,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async={true}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Mustafa Dede",
+              url: "https://mustafadede.com",
+              sameAs: [
+                "https://github.com/mustafadede",
+                "https://linkedin.com/in/mustafadede",
+              ],
+            }),
+          }}
+        />
+      </head>
       <link rel="canonical" href="https://mustafadede.com" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black!`}
@@ -56,21 +74,6 @@ export default function RootLayout({
           {children}
         </ClientWrapper>
       </body>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Mustafa Dede",
-            url: "https://mustafadede.com",
-            sameAs: [
-              "https://github.com/mustafadede",
-              "https://linkedin.com/in/mustafadede",
-            ],
-          }),
-        }}
-      />
     </html>
   );
 }

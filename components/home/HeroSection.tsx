@@ -4,6 +4,7 @@ import { Mouse } from "lucide-react";
 import LightRays from "@/components/LightRays";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useEffect, useState } from "react";
+import { FieldGroup } from "../ui/field";
 
 function HeroSection() {
   const isDesktop = useMediaQuery("(min-width: 720px)");
@@ -24,7 +25,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen items-center relative">
+    <FieldGroup className="flex flex-col min-h-screen items-center relative">
       <motion.div
         initial={{ opacity: 0, filter: "blur(10px)", y: 0 }}
         animate={
@@ -54,7 +55,7 @@ function HeroSection() {
         distortion={0.05}
         className="custom-rays absolute! top-0"
       />
-      <motion.div className="flex mt-36 lg:mt-36 flex-col gap-4 items-center relative top-14">
+      <motion.div className="flex mt-36 lg:mt-20 flex-col gap-4 items-center relative top-14">
         <motion.h1
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{ opacity: 1, filter: "blur(0)" }}
@@ -80,9 +81,9 @@ function HeroSection() {
         <video
           width="100%"
           height="100%"
-          preload="true"
-          muted
-          autoPlay
+          muted={true}
+          autoPlay={true}
+          playsInline={true}
           className="object-contain w-full h-full"
         >
           <source src="/homepage-video.mp4" type="video/mp4" />
@@ -108,7 +109,7 @@ function HeroSection() {
           <motion.p>Aşağı kaydır</motion.p>
         </motion.div>
       </div>
-    </div>
+    </FieldGroup>
   );
 }
 
