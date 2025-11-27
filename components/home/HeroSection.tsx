@@ -4,7 +4,6 @@ import { Mouse } from "lucide-react";
 import LightRays from "@/components/LightRays";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useEffect, useState } from "react";
-import { FieldGroup } from "../ui/field";
 
 function HeroSection() {
   const isDesktop = useMediaQuery("(min-width: 720px)");
@@ -25,24 +24,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <FieldGroup className="flex flex-col min-h-screen items-center relative">
-      <motion.div
-        initial={{ opacity: 0, filter: "blur(10px)", y: 0 }}
-        animate={
-          scrolled
-            ? { opacity: 0, filter: "blur(10px)", y: -30 }
-            : { opacity: 1, filter: "blur(0)", y: 0 }
-        }
-        exit={{ opacity: 0, filter: "blur(10px)", y: 0 }}
-        transition={{
-          duration: 1,
-          delay: !scrolled && !mounted ? 2.4 : 0,
-        }}
-        className="hidden lg:flex z-20 absolute lg:bottom-10 lg:right-10 items-center gap-4 text-white"
-      >
-        <Mouse size={21} />
-        <motion.p>Aşağı kaydır</motion.p>
-      </motion.div>
+    <div className="flex flex-col max-h-fit mb-40 items-center relative">
       <LightRays
         raysOrigin="top-center"
         raysColor="#fff"
@@ -55,7 +37,7 @@ function HeroSection() {
         distortion={0.05}
         className="custom-rays absolute! top-0"
       />
-      <motion.div className="flex mt-36 lg:mt-20 flex-col gap-4 items-center relative top-14">
+      <motion.div className="flex mt-20 flex-col gap-4 items-center relative top-14">
         <motion.h1
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{ opacity: 1, filter: "blur(0)" }}
@@ -77,7 +59,7 @@ function HeroSection() {
           </motion.h2>
         </div>
       </motion.div>
-      <div className="relative w-full h-full sm:h-[380px] -bottom-24">
+      <div className="relative w-full h-full md:h-[380px] -bottom-24">
         <video
           width="100%"
           height="100%"
@@ -103,13 +85,13 @@ function HeroSection() {
             duration: 1,
             delay: !scrolled && !mounted ? 2.4 : 0,
           }}
-          className="flex z-20 absolute bottom-7 w-full justify-center md:hidden items-center gap-4 text-white"
+          className="flex z-20 absolute bottom-10 w-full justify-center items-center gap-4 text-white"
         >
           <Mouse size={21} />
           <motion.p>Aşağı kaydır</motion.p>
         </motion.div>
       </div>
-    </FieldGroup>
+    </div>
   );
 }
 

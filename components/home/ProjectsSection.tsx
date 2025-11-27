@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Safari } from "../ui/shadcn-io/safari";
 import {
@@ -12,6 +13,7 @@ import SliderContent from "./SliderContent";
 import PocketLogo from "../logos/PocketLogo";
 import SharePalLogo from "../logos/SharePalLogo";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { useEffect, useState } from "react";
 
 const Projects = [
   {
@@ -35,16 +37,22 @@ const Projects = [
 ];
 
 function ProjectsSection() {
+  const [mounted, setMounted] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
-    <div className="w-full h-screen">
-      <motion.div className="flex flex-col justify-center items-center md:my-20">
+    <div className="w-full h-fit">
+      <motion.div className="flex flex-col justify-center items-center">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="text-white text-6xl font-semibold"
+          className="text-white text-4xl lg:text-5xl font-semibold"
         >
           Kısa bir bakış
         </motion.p>
@@ -57,9 +65,10 @@ function ProjectsSection() {
         >
           {isDesktop && (
             <Carousel
-              className="w-full relative max-w-4xl overflow-visible! px-6 mt-4"
+              className="w-full relative max-w-3xl overflow-visible! px-6 mt-4"
               opts={{
-                loop: false,
+                loop: true,
+                align: "center",
               }}
             >
               <CarouselContent>
@@ -75,11 +84,11 @@ function ProjectsSection() {
                       </>
                     )}
                     {index === 1 && (
-                      <div className="h-140 flex justify-center items-center overflow-hidden">
+                      <div className="h-96 flex justify-center items-center overflow-hidden">
                         <motion.div
                           initial={{ y: 20 }}
                           whileInView={{ y: 0 }}
-                          className="w-full h-full absolute z-10 -top-16 bg-[url('/phone.png')] bg-center bg-no-repeat"
+                          className="w-full h-full absolute z-10 top-0 bg-[url('/phone.png')] bg-center bg-no-repeat"
                         />
                         <Image
                           src="/pocket.png"
@@ -94,8 +103,8 @@ function ProjectsSection() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden lg:flex" />
-              <CarouselNext className="hidden lg:flex" />
+              <CarouselPrevious className="hidden lg:flex bg-white/20 text-white transition-colors duration-150 cursor-pointer border border-accent/40" />
+              <CarouselNext className="hidden lg:flex bg-white/20 text-white transition-colors duration-150 cursor-pointer border border-accent/40" />
             </Carousel>
           )}
         </motion.div>
