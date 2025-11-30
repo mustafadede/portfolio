@@ -40,7 +40,7 @@ function HeroSection() {
   }, [mounted]);
 
   return (
-    <div className="flex flex-col max-h-fit mb-40 items-center relative">
+    <div className="flex flex-col max-h-screen mb-40 items-center relative">
       <LightRays
         raysOrigin="top-center"
         raysColor="#fff"
@@ -91,8 +91,7 @@ function HeroSection() {
           <source src="/homepage-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-b from-transparent to-black/80 md:to-black/30 z-10" />
-
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-b from-transparent to-black/80 z-10" />
         <motion.div
           initial={{ opacity: 0, filter: "blur(10px)", y: 0 }}
           animate={
@@ -105,7 +104,7 @@ function HeroSection() {
             duration: 1,
             delay: !scrolled && !mounted ? 2.4 : 0,
           }}
-          className="flex z-20 absolute bottom-10 w-full justify-center items-center gap-4 text-white"
+          className="flex z-20 absolute bottom-0 w-full justify-center items-center gap-4 text-white"
         >
           <Mouse size={21} />
           <motion.p>{t("hero.scrollDown")}</motion.p>
