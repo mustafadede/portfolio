@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import ClientWrapper from "./ClientWrapper";
+import LocaleHtml from "@/components/LocaleHtml";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <head>
         <script
           async={true}
@@ -69,6 +70,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black!`}
       >
+        <LocaleHtml />
         <Navbar />
         <ClientWrapper>{children}</ClientWrapper>
       </body>

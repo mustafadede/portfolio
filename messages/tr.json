@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "projects": "Projelerim",
+    "about": "Hakkımda"
+  },
+  "hero": {
+    "title": "Mustafa Dede",
+    "subtitle": "Yazılım Geliştiricisi",
+    "scrollDown": "Aşağı kaydır"
+  },
+  "projects": {
+    "title": "Kısa bir bakış",
+    "visitSite": "Siteye git",
+    "githubLink": "Github Link",
+    "favorite": "Mustafa'nın Favorisi",
+    "sharepalDesc": "Film ve dizi hayranlarına",
+    "pocketDesc": "Ajanda tutmayı sevenlere"
+  },
+  "tech": {
+    "title": "Teknoloji & Araçlar",
+    "subtitle": "Günlük çalışmalarımda kullandığım teknolojiler ve araçlar",
+    "categories": {
+      "frontend": "Ön Yüz",
+      "backend": "Arka Yüz",
+      "mobile": "Mobil",
+      "tools": "Araçlar & DevOps",
+      "design": "Tasarım",
+      "languages": "Diller"
+    }
+  },
+  "common": {
+    "language": "Dil"
+  }
+}
+

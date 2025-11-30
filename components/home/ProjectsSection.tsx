@@ -14,31 +14,34 @@ import PocketLogo from "../logos/PocketLogo";
 import SharePalLogo from "../logos/SharePalLogo";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useEffect, useState } from "react";
-
-const Projects = [
-  {
-    id: 0,
-    header: <SharePalLogo />,
-    desc: "Film ve dizi hayranlarına",
-    url: "https://sharepal.dev/",
-    githubUrl: "https://github.com/mustafadede/SharePal",
-    urlHeader: "sharepal.dev",
-    imgSrc: "/sharepal.png",
-  },
-  {
-    id: 1,
-    header: <PocketLogo />,
-    desc: "Ajanda tutmayı sevenlere",
-    url: "https://sharepal.dev/",
-    githubUrl: "https://github.com/mustafadede/Pocket",
-    urlHeader: "sharepal.dev",
-    imgSrc: "/sharepal.png",
-  },
-];
+import { useTranslations } from "@/hooks/use-translations";
 
 function ProjectsSection() {
   const [mounted, setMounted] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const { t } = useTranslations();
+
+  const Projects = [
+    {
+      id: 0,
+      header: <SharePalLogo />,
+      desc: t("projects.sharepalDesc"),
+      url: "https://sharepal.dev/",
+      githubUrl: "https://github.com/mustafadede/SharePal",
+      urlHeader: "sharepal.dev",
+      imgSrc: "/sharepal.png",
+    },
+    {
+      id: 1,
+      header: <PocketLogo />,
+      desc: t("projects.pocketDesc"),
+      url: "https://sharepal.dev/",
+      githubUrl: "https://github.com/mustafadede/Pocket",
+      urlHeader: "sharepal.dev",
+      imgSrc: "/sharepal.png",
+    },
+  ];
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -52,15 +55,17 @@ function ProjectsSection() {
           whileInView={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
+          viewport={{ once: true }}
           className="text-white text-4xl lg:text-5xl font-semibold"
         >
-          Kısa bir bakış
+          {t("projects.title")}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.8 }}
+          viewport={{ once: true }}
           className="flex relative flex-col items-center mt-10 mb-20"
         >
           {isDesktop && (

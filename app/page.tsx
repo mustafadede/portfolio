@@ -1,13 +1,6 @@
-"use client";
+import { redirect } from "next/navigation";
+import { defaultLocale } from "@/lib/i18n";
 
-import HeroSection from "@/components/home/HeroSection";
-import ProjectsSection from "@/components/home/ProjectsSection";
-
-export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <ProjectsSection />
-    </>
-  );
+export default function RootPage() {
+  redirect(`/${defaultLocale}`);
 }

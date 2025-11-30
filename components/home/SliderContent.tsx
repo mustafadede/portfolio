@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import { JSX } from "react";
+import { useTranslations } from "@/hooks/use-translations";
 
 function SliderContent({
   item,
@@ -14,6 +15,8 @@ function SliderContent({
     url: string;
   };
 }) {
+  const { t } = useTranslations();
+  
   return (
     <div>
       <div className="flex absolute -bottom-30 md:bottom-0 z-20 w-full flex-col gap-4 mb-4 items-center">
@@ -24,6 +27,7 @@ function SliderContent({
             opacity: 1,
             filter: "blur(0px)",
           }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 1 }}
         >
           {item?.header}
@@ -36,6 +40,7 @@ function SliderContent({
             filter: "blur(0px)",
           }}
           transition={{ duration: 0.4, delay: 1.2 }}
+          viewport={{ once: true }}
           className="text-white italic font-extralight text-xl"
         >
           {item?.desc}
@@ -52,6 +57,7 @@ function SliderContent({
               opacity: 1,
               filter: "blur(0px)",
             }}
+            viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 1.4 }}
             className={clsx("flex", item.githubUrl ? "gap-4" : "")}
           >
@@ -61,7 +67,7 @@ function SliderContent({
                 target="_blank"
                 className="bg-gray-600/20 flex justify-center py-2 items-center gap-4 px-4 text-white hover:bg-white/10 border-accent/20 rounded-3xl border font-semibold transition-colors duration-150 cursor-pointer backdrop-blur-2xl"
               >
-                Github Link
+                {t("projects.githubLink")}
                 <Github size={18} color="white" />
               </Link>
             )}
@@ -70,7 +76,7 @@ function SliderContent({
               target="_blank"
               className="bg-white/20 flex justify-center py-2 items-center gap-4 px-4 text-white hover:bg-white/10 border-accent/20 rounded-3xl border font-semibold transition-colors duration-150 cursor-pointer backdrop-blur-2xl"
             >
-              Siteye git
+              {t("projects.visitSite")}
               <ExternalLink size={18} color="white" />
             </Link>
           </motion.div>

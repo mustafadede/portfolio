@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "My Projects",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Mustafa Dede",
+    "subtitle": "Software Developer",
+    "scrollDown": "Scroll down"
+  },
+  "projects": {
+    "title": "A quick look",
+    "visitSite": "Visit site",
+    "githubLink": "Github Link",
+    "favorite": "Mustafa's Favorite",
+    "sharepalDesc": "For movie and series fans",
+    "pocketDesc": "For those who love keeping a journal"
+  },
+  "tech": {
+    "title": "Technology & Tools",
+    "subtitle": "Technologies and tools I use in my daily work",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "tools": "Tools & DevOps",
+      "design": "Design",
+      "languages": "Languages"
+    }
+  },
+  "common": {
+    "language": "Language"
+  }
+}
+

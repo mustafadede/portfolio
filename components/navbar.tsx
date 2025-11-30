@@ -1,13 +1,36 @@
 "use client";
 
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import { Button } from "./ui/button";
+import { useTranslations } from "@/hooks/use-translations";
+import { locales, type Locale } from "@/lib/i18n";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 function Navbar() {
-  const location = usePathname();
+  const pathname = usePathname();
+  const params = useParams();
+  const router = useRouter();
+  const { t, locale } = useTranslations();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const switchLocale = (newLocale: Locale) => {
+    const currentPath = pathname.replace(`/${locale}`, "");
+    const newPath = `/${newLocale}${currentPath}`;
+
+    // Set cookie
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
+
+    router.push(newPath);
+  };
+
+  const getLocalizedPath = (path: string) => {
+    return `/${locale}${path}`;
+  };
+
   return (
     <motion.div
       initial={{ y: -20, opacity: 0 }}
@@ -17,34 +40,36 @@ function Navbar() {
     >
       <div className="w-fit border items-center backdrop-blur-xl bg-transparent border-accent/20 h-12 rounded-4xl flex gap-6 px-6">
         <Link
-          href={"/projects"}
+          href={getLocalizedPath("/projects")}
           replace={true}
           className={clsx(
             "hover:bg-white/20 transition-colors duration-150  rounded-2xl px-3 py-1 h-fit flex items-center cursor-pointer hover:text-white text-white",
-            location === "/projects" ? "bg-white/20" : ""
+            pathname?.includes("/projects") ? "bg-white/20" : ""
           )}
         >
-          Projelerim
+          {t("nav.projects")}
         </Link>
         <Link
-          href={"/"}
+          href={getLocalizedPath("/")}
           replace={true}
           className={clsx(
             "hover:bg-white/20 transition-colors duration-150  rounded-2xl px-3 py-1 h-fit flex items-center cursor-pointer hover:text-white text-white",
-            location === "/" ? "bg-white/20" : ""
+            pathname === `/${locale}` || pathname === `/${locale}/`
+              ? "bg-white/20"
+              : ""
           )}
         >
-          Ana Sayfa
+          {t("nav.home")}
         </Link>
         <Link
-          href={"/about"}
+          href={getLocalizedPath("/about")}
           replace={true}
           className={clsx(
             "hover:bg-white/20 transition-colors duration-150  rounded-2xl px-3 py-1 h-fit flex items-center cursor-pointer hover:text-white text-white",
-            location === "/about" ? "bg-white/20" : ""
+            pathname?.includes("/about") ? "bg-white/20" : ""
           )}
         >
-          Hakkımda
+          {t("nav.about")}
         </Link>
       </div>
       <motion.div
@@ -52,14 +77,47 @@ function Navbar() {
         animate={{ filter: "blur(0px)", opacity: 1 }}
         exit={{ filter: "blur(10px)", opacity: 0 }}
         transition={{ delay: 2.4, duration: 0.4 }}
-        className="w-fit hidden md:flex absolute right-10 border items-center backdrop-blur-xl bg-transparent border-accent/20 h-fit rounded-full "
+        className="w-fit hidden md:flex absolute right-10 border items-center backdrop-blur-xl bg-transparent border-accent/20 h-fit rounded-4xl"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
       >
-        <Button
-          variant="ghost"
-          className="transition-colors bg-transparent hover:bg-transparent duration-150 text-sm rounded-2xl px-4 py-2 h-fit flex items-center cursor-pointer hover:text-white text-white"
-        >
-          TR
-        </Button>
+        <div className="relative">
+          {/* Current language - always visible, clickable to toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="hover:bg-white/20 transition-colors duration-150 rounded-2xl px-3 py-1 h-fit flex items-center cursor-pointer hover:text-white text-white"
+          >
+            {locale.toUpperCase()}
+          </button>
+
+          {/* Dropdown menu - appears below on hover/click */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-full mt-2 right-0 border backdrop-blur-xl bg-transparent border-accent/20 rounded-2xl overflow-hidden"
+              >
+                {locales
+                  .filter((loc) => loc !== locale)
+                  .map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => {
+                        switchLocale(loc);
+                        setIsOpen(false);
+                      }}
+                      className="w-full hover:bg-white/20 transition-colors duration-150 rounded-2xl h-fit flex items-center px-3 py-1 justify-center cursor-pointer hover:text-white text-white"
+                    >
+                      {loc.toUpperCase()}
+                    </button>
+                  ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </motion.div>
     </motion.div>
   );

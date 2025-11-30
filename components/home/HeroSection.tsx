@@ -3,12 +3,15 @@ import { motion } from "framer-motion";
 import { Mouse } from "lucide-react";
 import LightRays from "@/components/LightRays";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useTranslations } from "@/hooks/use-translations";
 
 function HeroSection() {
   const isDesktop = useMediaQuery("(min-width: 720px)");
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useTranslations();
 
   useEffect(() => {
     setMounted(true);
@@ -22,6 +25,19 @@ function HeroSection() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (videoRef.current && mounted) {
+      // Force play for Safari compatibility
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          // Auto-play was prevented, try again after user interaction
+          console.log("Video autoplay prevented:", error);
+        });
+      }
+    }
+  }, [mounted]);
 
   return (
     <div className="flex flex-col max-h-fit mb-40 items-center relative">
@@ -55,18 +71,22 @@ function HeroSection() {
             transition={{ delay: 0.6, duration: 1 }}
             className="text-white text-3xl select-none text-center"
           >
-            Software Developer
+            {t("hero.subtitle")}
           </motion.h2>
         </div>
       </motion.div>
       <div className="relative w-full h-full md:h-[380px] -bottom-24">
         <video
+          ref={videoRef}
           width="100%"
           height="100%"
           muted={true}
           autoPlay={true}
           playsInline={true}
+          preload="auto"
+          loop={false}
           className="object-contain w-full h-full"
+          style={{ WebkitPlaysinline: "true" } as React.CSSProperties}
         >
           <source src="/homepage-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -88,7 +108,7 @@ function HeroSection() {
           className="flex z-20 absolute bottom-10 w-full justify-center items-center gap-4 text-white"
         >
           <Mouse size={21} />
-          <motion.p>Aşağı kaydır</motion.p>
+          <motion.p>{t("hero.scrollDown")}</motion.p>
         </motion.div>
       </div>
     </div>
