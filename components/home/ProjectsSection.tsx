@@ -49,7 +49,7 @@ function ProjectsSection() {
   if (!mounted) return null;
   return (
     <div className="w-full h-fit">
-      <motion.div className="flex flex-col justify-center items-center">
+      <motion.div className="flex flex-col justify-center gap-4 items-center">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -60,13 +60,23 @@ function ProjectsSection() {
         >
           {t("projects.title")}
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-white/60 text-base sm:text-lg text-center"
+        >
+          {t("projects.subtitle")}
+        </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.8 }}
           viewport={{ once: true }}
-          className="flex relative flex-col items-center mt-10 mb-20"
+          className="flex relative flex-col items-center mb-20"
         >
           {isDesktop && (
             <Carousel

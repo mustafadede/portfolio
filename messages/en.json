@@ -11,10 +11,11 @@
   },
   "projects": {
     "title": "A quick look",
+    "subtitle": "My highlighted projects",
     "visitSite": "Visit site",
     "githubLink": "Github Link",
     "favorite": "Mustafa's Favorite",
-    "sharepalDesc": "For movie and series fans",
+    "sharepalDesc": "For movie and series enthusiasts",
     "pocketDesc": "For those who love keeping a journal"
   },
   "tech": {
